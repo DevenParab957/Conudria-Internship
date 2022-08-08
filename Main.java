@@ -1,20 +1,17 @@
 import java.io.*;
 
-class Mulithread extends Thread
-{
-	@Override public  void run()
-	{
-		System.out.println("Thread name is : ");
-		System.out.println(Thread.currentThread().getName());
-	}
-
-}
-
-class Main
+class Main implements Runnable
 {
 	public static void main(String[] args)
 	{
-		Mulithread t1 = new Mulithread();
+		Main m1 = new Main();
+		Thread t1 = new Thread(m1);
+		System.out.println(t1.getName());
 		t1.start();
+
+	}
+	public void run()
+	{
+
 	}
 }
